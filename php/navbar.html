@@ -1,0 +1,115 @@
+<html>
+<head>
+		
+		
+<link rel="stylesheet" href="../css/bootstrap-yeti.css"/>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script>
+	function toggleDropdownInsert(){
+		var element = document.getElementById("dropdown_insert");
+		element.classList.toggle("show");
+		
+				
+		if(element.classList.contains("show")) { 
+			var element = document.getElementById("dropdown_create");
+			element.classList.remove("show");
+			
+			//var element = document.getElementById("menuOther");
+			//element.classList.remove("show");
+		}
+		
+	}
+	
+	//function hideDropdownInsert(){	
+	////	document.getElementById("dropdown_insert").classList.remove("show");
+	//}
+	
+    function hideDropdownDDL(){	
+		document.getElementById("dropdown_create").classList.remove("show");
+	}
+	
+	function toggleDropdownDDL(){
+		var element = document.getElementById("dropdown_create");
+		element.classList.toggle("show");
+		
+		if(element.classList.contains("show")) { 
+			var element = document.getElementById("dropdown_insert");
+			element.classList.remove("show");
+		}
+	}
+	
+	function hideEveryDropdown(){
+		var elements = document.getElementsByClassName("dropdown-menu");
+		for(var i = 0; i < elements.length; i++){
+			elements[i].classList.remove("show");
+		}
+	}
+	
+	
+	
+</script>
+
+</head>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="home_page_layout.php">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="home_page_layout.php">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-link" class="nav-item" style="margin-top: -6px">
+			<a class="nav-link" href="show_products_layout.php">Show</a>
+        </li>
+		
+        <li class="nav-link" class="nav-item" style="margin-top: -6px">
+			<a class="nav-link" href="show_products_with_images_layout.php">Show products with images</a>
+        </li>
+		
+		<li class="nav-link" class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+      
+        <li class="nav-item dropdown">
+          <a onclick="toggleDropdownInsert()" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Insert</a>
+          <div class="dropdown-menu" id="dropdown_insert">
+            <a class="dropdown-item" href="insert_product_layout.php" onclick="hideDropdownInsert()">Insert product</a>
+            <a class="dropdown-item" href="insert_measure_unit_layout.php" onclick="hideDropdownInsert()">Insert measure unit</a>
+            <a class="dropdown-item" href="insert_trade_name_layout.php" onclick="hideDropdownInsert()">Insert trade name</a>
+          </div>
+        </li>
+		
+		
+        <li class="nav-link" class="nav-item" style="margin-top: -6px">
+			<a class="nav-link" href="update_products_layout.php">Update product quantity in storage</a>
+        </li>
+		
+		 <li class="nav-link" class="nav-item" style="margin-top: -6px">
+			<a class="nav-link" href="insert_picture_layout.php">Insert picture</a>
+        </li>
+		
+		 <li class="nav-item dropdown">
+          <a onclick="toggleDropdownDDL()" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">DDL</a>
+          <div class="dropdown-menu" id="dropdown_create">
+            <a class="dropdown-item" href="create_database.php" onclick="hideDropdownDDL()">Create database</a>
+            <a class="dropdown-item" href="create_tables.php" onclick="hideDropdownDDL()">Create tables</a>
+          </div>
+        </li>
+	
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
